@@ -1,0 +1,129 @@
+@import url("blog.css");
+@import url("about.css");
+
+body {
+  margin: 0;
+  display: grid;
+  grid-gap: 0px;
+  /* grid-template-columns: 500px 500px; */
+  grid-template-rows: min-content auto min-content;
+  font: 1.2em Helvetica, arial, sans-serif;
+  grid-template-areas:
+    "nav"
+    "conten"
+    "footer";
+}
+@media (min-width: 500px) {
+  body {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "nav     nav"
+      "conten conten"
+      "footer      footer";
+  }
+  ul {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+}
+ul {
+  grid-area: nav;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+/* When the link is hovered on, its color will change */
+li a:hover {
+  background-color: #6bcfee;
+  /* color: black; */
+}
+
+.active {
+  background-color: #dddddd;
+  color: black;
+}
+
+@media (min-width: 700px) {
+  body {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "nav    nav nav"
+      "conten    conten conten"
+      "footer footer  footer";
+  }
+  /* ul {
+    flex-direction: row;
+  } */
+}
+main {
+  grid-template-rows: 500px 500px;
+  grid-area: conten;
+  grid-template-areas:
+    "welcome welcome welcome welcome welcome welcome"
+    "blog blog blog blog blog blog";
+}
+
+.welcome {
+  grid-area: welcome;
+  background-image: url("images/bird.jpeg");
+  height: 900px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.welcome h1 {
+  display: flex;
+  margin: 0;
+  padding-top: 180px;
+  padding-left: 400px;
+}
+
+.block {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+.cards {
+  /* display: grid; */
+  grid-area: blog;
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 20px;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.card {
+  /* display: grid; */
+  grid-template-rows: max-content 200px 1fr;
+}
+.card img {
+  object-fit: cover;
+  width: 370px;
+  height: 247px;
+}
+p {
+  font-size: 20px;
+}
+
+.footer {
+  grid-area: footer;
+  margin: 10px;
+  padding: 10px;
+}
